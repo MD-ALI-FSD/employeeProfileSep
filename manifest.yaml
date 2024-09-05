@@ -1,0 +1,14 @@
+---
+applications:
+  - name: employeeprofileapp-app
+    path: .
+    buildpacks:
+      - nodejs_buildpack
+    memory: 256M
+    disk_quota: 512M
+    command: npx cds run
+    env:
+      NODE_ENV: development
+      SF_API_URL: "https://api22preview.sapsf.com/odata/v2"
+      cds_requires_sf_api_service_credentials_[development]_headers_Authorization: "Basic bWwOVQxOlBhc3NAMTMxMg=="
+      MOFA_OAUTH_TOKEN: "Basic bWRhbcnkwOVQxOlBhc3NAMTMxMg=="

@@ -1,0 +1,117 @@
+{
+  "headers1": [
+    {
+      "headerTitle": "الخبرات العملية"
+    },
+
+    {
+      "headerTitle": "الشهادات العلمية"
+    },
+
+    {
+      "headerTitle": "التدريب"
+    },
+    {
+      "headerTitle": "تقارير الأداء"
+    }
+  ],
+
+  "headers2": [
+    {
+      "headerTitle": "سجل الترقيات"
+    },
+
+    {
+      "headerTitle": "إدارة المواهب"
+    },
+
+    {
+      "headerTitle": "ملخص مركز التقييم"
+    }
+  ],
+  "headers3": [
+    {
+      "headerTitle": "الخبرات العملية"
+    },
+
+    {
+      "headerTitle": "الشهادات العلمية"
+    },
+
+    {
+      "headerTitle": "التدريب"
+    },
+    {
+      "headerTitle": "تقارير الأداء"
+    }
+  ],
+  "headers4": [
+    {
+      "headerTitle": "الخبرات العملية"
+    },
+    {
+      "headerTitle": "الخبرات العملية السابقة"
+    },
+    {
+      "headerTitle": "الشهادات العلمية"
+    },
+
+    {
+      "headerTitle": "التدريب"
+    },
+    {
+      "headerTitle": "تقارير الأداء"
+    }
+  ],
+  "headers5": [
+    {
+      "headerTitle": "سجل الترقيات"
+    },
+
+    {
+      "headerTitle": "إدارة المواهب"
+    },
+
+    {
+      "headerTitle": "ملخص مركز التقييم"
+    }
+  ],
+
+  "headers6": [
+    {
+      "headerTitle": "الخبرات العملية"
+    },
+
+    {
+      "headerTitle": "الشهادات العلمية"
+    },
+
+    {
+      "headerTitle": "التدريب"
+    },
+    {
+      "headerTitle": "تقارير الأداء"
+    },
+    {
+      "headerTitle": "سجل الترقيات"
+    }
+  ],
+  "promotionHistory": "سجل الترقيات",
+  "talent": "إدارة المواهب",
+  "assmntSummary": "ملخص مركز التقييم",
+  "headingYow": "عدد سنوات العمل فى الوزارة",
+  "headingDob": "يوم الميلاد",
+  "headingMs": "الحالة الإجتماعية",
+  "headingRegion": "المسار الجغرافي",
+  "headingGP": "الدرجة",
+  "headingCntct": "معلومات التواصل",
+  "langg": "اللغات",
+  "regionPlaceHolder1": "عمل خارج الدولة: نعم / لا",
+  "regionPlaceHolder1Yes": "عمل خارج الدولة: نعم",
+  "regionPlaceHolder1No": "عمل خارج الدولة: لا",
+  "regionPlaceHolder2": "عمل في المناطق الصعبة: نعم / لا",
+  "regionPlaceHolder2Yes": "عمل في المناطق الصعبة: لا",
+  "regionPlaceHolder2No": "عمل في المناطق الصعبة: نعم",
+  "motherToungeLabel": "اللغة الأم",
+  "engLanguage": "اللغة الإنجليزية"
+}

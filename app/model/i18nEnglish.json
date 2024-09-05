@@ -1,0 +1,116 @@
+{
+  "headers1": [
+    {
+      "headerTitle": "Work Experience"
+    },
+
+    {
+      "headerTitle": "Educational Qualifications"
+    },
+
+    {
+      "headerTitle": "Training"
+    },
+    {
+      "headerTitle": "Performance Evaluation"
+    }
+  ],
+  "headers2": [
+    {
+      "headerTitle": "Promotion Record"
+    },
+
+    {
+      "headerTitle": "Talents"
+    },
+
+    {
+      "headerTitle": "Assessment Summary"
+    }
+  ],
+  "headers3": [
+    {
+      "headerTitle": "Work Experience"
+    },
+
+    {
+      "headerTitle": "Educational Qualifications"
+    },
+
+    {
+      "headerTitle": "Training"
+    },
+    {
+      "headerTitle": "Performance Evaluation"
+    }
+  ],
+  "headers4": [
+    {
+      "headerTitle": "Work Experience"
+    },
+    {
+      "headerTitle": "Previous Work Experience"
+    },
+
+    {
+      "headerTitle": "Educational Qualifications"
+    },
+
+    {
+      "headerTitle": "Training"
+    },
+    {
+      "headerTitle": "Performance Evaluation"
+    }
+  ],
+  "headers5": [
+    {
+      "headerTitle": "Promotion Record"
+    },
+
+    {
+      "headerTitle": "Talents"
+    },
+
+    {
+      "headerTitle": "Assessment Summary"
+    }
+  ],
+  "headers6": [
+    {
+      "headerTitle": "Work Experience"
+    },
+
+    {
+      "headerTitle": "Educational Qualifications"
+    },
+
+    {
+      "headerTitle": "Training"
+    },
+    {
+      "headerTitle": "Performance Evaluation"
+    },
+    {
+      "headerTitle": "Promotion History"
+    }
+  ],
+  "promotionHistory": "Promotion History",
+  "talent": "Talents",
+  "assmntSummary": "Assessment Summary",
+  "headingYow": "Number of Years Working in the Ministry",
+  "headingDob": "Date of Birth",
+  "headingMs": "Marital Status",
+  "headingRegion": "Region",
+  "headingGP": "Class",
+  "headingCntct": "Contact Information",
+  "langg": "Languages",
+  "regionPlaceHolder1": "Work outside the country: Yes / No",
+  "regionPlaceHolder1Yes": "Work outside the country: Yes",
+  "regionPlaceHolder1No": "Work outside the country: No",
+  "regionPlaceHolder2": "Work in difficult areas: Yes / No",
+  "regionPlaceHolder2Yes": "Work in difficult areas: Yes",
+  "regionPlaceHolder2No": "Work in difficult areas: No",
+  "motherToungeLabel": "Mother Tongue",
+  "engLanguage": "English Language"
+}

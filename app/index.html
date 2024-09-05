@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <title>Employee Profile Demo</title>
+  </head>
+  <body class="body-style body-part">
+    <div class="formDiv">
+      <form>
+        <h1>Enter User ID</h1>
+        <!-- <label for="userId">User ID:</label> -->
+        <input
+          class="input-form"
+          type="text"
+          id="userId"
+          name="userId"
+          required
+        />
+        <button type="submit" class="formBtn btn">Submit</button>
+      </form>
+    </div>
+    <div class="spinnerFullpage displayNone">
+      <div class="spinnerContainer">
+        <h1 class="spinner-text">Page Is Loading</h1>
+        <div class="spinner"></div>
+      </div>
+    </div>
+    <div class="pdf-main-container displayNone">
+      <div class="nav-bar">
+        <!-- <div id="google_translate_element"></div> -->
+
+        <button class="back btn">Back</button>
+        <select id="languageDropdown" class="langChange1">
+          <option value="ar_SA">Arabic</option>
+          <option value="en_US">English</option>
+        </select>
+        <button class="btnPdf btn">Create PDF</button>
+      </div>
+
+      <!--New 1ST PAGE -->
+      <div class="container">
+        <div class="left-div1">
+          <div class="left-div11"></div>
+          <div class="bottom-right-content">
+            <div class="circle langChange" style="right: 0px">
+              <img
+                width="55px"
+                src="./images/languages.webp"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+            <div
+              dir="rtl"
+              lang="ar"
+              style="font-size: 24px; margin-right: 70px; margin-top: -5px"
+            >
+              <span class="langg">Click Logo For English</span>
+            </div>
+          </div>
+
+          <div class="outer-tag1">
+            <div class="inner-tag1">
+              <div class="ilts1 common">
+                <div class="engLanguage">اللغة الإنجليزية</div>
+                <div class="engScore">لم يتم توفير الشهادة</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag"><strong>EN</strong></div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+
+            <div class="inner-tag1">
+              <div class="mt1 common">
+                <div class="mother-tounge">English</div>
+                <div class="mother-tounge-label">Mother Tounge</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag">
+                  <strong class="mother-tounge-tag">PR</strong>
+                </div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-div">
+          <div class="employee-outer-box">
+            <div class="image-outer-box">
+              <img class="employeeImage image-box" alt="Employee Image" />
+            </div>
+
+            <div class="employee-details-box">
+              <span class="employeename namePlaceHolder">Employee Name</span>
+              <br />
+              <br />
+              <span class="position1 positionPlaceHolder">Position</span>
+            </div>
+            <div class="triangle"></div>
+          </div>
+
+          <!-- NO OF Years -->
+
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/growth.png" />
+            </div>
+            <div class="user-detail-heading color headingYow1">
+              عدد سنوات العمل في الوزارة
+            </div>
+
+            <div dir="rtl" class="user-detail-sub-heading noOfYearsPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- DATE OF BIRTH -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/calender.png" />
+            </div>
+            <div class="user-detail-heading color headingDob1">
+              تاريخ الميلاد
+            </div>
+
+            <div dir="rtl" class="user-detail-sub-heading dob dobPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- MARITAL STATUS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/avatar.png" />
+            </div>
+            <div class="user-detail-heading color headingMs1">
+              الحالة الإجتماعية
+            </div>
+
+            <div
+              dir="rtl"
+              class="user-detail-sub-heading maritalStatusPlaceHolder"
+            >
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- GLOBAL -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/region.png" />
+            </div>
+            <div class="user-detail-heading color headingRegion">
+              المسار الجغرافي
+            </div>
+
+            <div class="user-detail-sub-heading regionPlaceHolder1">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder2">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder3">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CLASS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/classImg.png" />
+            </div>
+            <div class="user-detail-heading color headingGP1">الدرجة</div>
+
+            <div class="user-detail-sub-heading classPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/contact.png" />
+            </div>
+            <div class="user-detail-heading color headingCntct1">
+              معلومات التواصل
+            </div>
+
+            <div class="user-detail-sub-heading phonePlaceHolder">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading emailPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--New 2nd PAGE -->
+      <div class="container">
+        <div class="left-div2">
+          <!-- style="margin-left: 360px; margin-top: 50px;" -->
+
+          <!-- PROMOTION HISTORY -->
+          <div class="first-part" style="margin-top: 24px">
+            <div dir="rtl" lang="ar" style="margin-top: 24px" class="heading">
+              <span class="promotion2">سجل الترقيات</span>
+            </div>
+            <div style="margin-top: 24px; margin-right: 80px" class="circle">
+              <img
+                width="60px"
+                src="./images/handShake.png"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+          </div>
+          <div class="sub-detail2-0"></div>
+
+          <!-- TALENT -->
+          <div class="first-part" style="margin-top: 140px">
+            <div dir="rtl" lang="ar" style="margin-top: 24px" class="heading">
+              <span class="talent2">إدارة المواهب </span>
+            </div>
+            <div style="margin-top: 24px; margin-right: 80px" class="circle">
+              <img
+                width="45px"
+                src="./images/whiteBoard.png"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+          </div>
+
+          <!-- <div class="heading" style="margin-top: 50px; margin-bottom: 20px">
+            <span class="talent2">إدارة المواهب</span>
+          </div> -->
+          <div class="arrow-table">
+            <div class="arrow-line-vertical" style="font-weight: bold">
+              <span class="rotate">Potential</span>
+            </div>
+            <table class="xy-table xy-table-adjust1">
+              <tr>
+                <td style="background-color: #fceec3">Potential Performer</td>
+                <td style="background-color: #b1dbb6">Emerging Talent</td>
+                <td style="background-color: #b3dab7">Top Talent(75%-100%)</td>
+              </tr>
+              <tr>
+                <td style="background-color: #f6a5a0">
+                  Inconsistent Performer
+                </td>
+                <td style="background-color: #fdeec4">Core Performer</td>
+                <td style="background-color: #b1dbb6">Rising Talent</td>
+              </tr>
+              <tr>
+                <td style="background-color: #dca099">Talent Risk</td>
+                <td style="background-color: #fceec3">Effective Performer</td>
+                <td style="background-color: #fceec3">Valued Performer</td>
+              </tr>
+            </table>
+            <div class="crcl-div">
+              <div class="cccircle"></div>
+            </div>
+          </div>
+          <div class="arrow-line-horizontal">
+            <span style="margin-left: 200px; font-size: 22px; font-weight: bold"
+              >Performance</span
+            >
+          </div>
+
+          <!-- style="margin-left: 250px; margin-top: 50px" -->
+          <!-- ASSESSMENT SUMMARY -->
+          <div class="first-part" style="margin-top: 50px">
+            <div dir="rtl" lang="ar" style="margin-top: 24px" class="heading">
+              <span class="assmnt-summary2">ملخص مركز التقييم</span>
+            </div>
+            <div style="margin-top: 24px; margin-right: 80px" class="circle">
+              <img
+                width="45px"
+                src="./images/whiteBoard.png"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+          </div>
+          <!-- <div class="heading" style="margin-top: 50px; margin-bottom: 20px">
+            <span class="assmnt-summary2">ملخص مركز التقييم</span>
+          </div> -->
+          <div class="graph-comment" style="margin-top: 24px">
+            <div class="graph-body">
+              <div class="container-graph">
+                <div class="bar one"></div>
+                <div class="bar two"></div>
+                <div class="bar three"></div>
+                <div class="bar four"></div>
+                <div class="bar five"></div>
+
+                <ul class="v-meter">
+                  <li><div>Significant Area Of Strength</div></li>
+                  <li><div>Area of Strength</div></li>
+                  <li><div>At Level</div></li>
+                  <li><div>Area For Development</div></li>
+                  <li><div>Significant Area for Development</div></li>
+                </ul>
+                <div class="horizontal-labels">
+                  <span>Problem Solving</span>
+                  <span>Agile & Creative</span>
+                  <span>Delivering Results</span>
+                  <span>Communicate & Relate</span>
+                  <span>Organisational Commitment & Engagement</span>
+                </div>
+              </div>
+            </div>
+            <div class="comment-outer">
+              <div class="cloud">
+                <!-- <p>Comment Box</p> -->
+                <input
+                  type="text"
+                  name="username"
+                  class="comment-input"
+                  placeholder="Enter your comment here..."
+                  oninput="if (this.value.length > 27) { alert('Sorry!! Maximum characters limit reached.'); this.value = this.value.slice(0, 27); }"
+                />
+
+                <!-- <textarea
+                  name="comment"
+                  placeholder="Enter your comment here..."
+                  class="comment-box"
+                ></textarea> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="bottom-right-content">
+            <div class="circle langChange" style="right: 0px">
+              <img
+                width="55px"
+                src="./images/languages.webp"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+            <div
+              dir="rtl"
+              lang="ar"
+              style="font-size: 24px; margin-right: 70px; margin-top: -5px"
+            >
+              <span class="langg">Click Logo For English</span>
+            </div>
+          </div>
+
+          <div class="outer-tag1">
+            <div class="inner-tag1">
+              <div class="ilts1 common">
+                <div class="engLanguage">اللغة الإنجليزية</div>
+                <div class="engScore">لم يتم توفير الشهادة</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag"><strong>EN</strong></div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+
+            <div class="inner-tag1">
+              <div class="mt1 common">
+                <div class="mother-tounge">English</div>
+                <div class="mother-tounge-label">Mother Tounge</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag">
+                  <strong class="mother-tounge-tag">AR</strong>
+                </div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-div">
+          <div class="employee-outer-box">
+            <div class="image-outer-box">
+              <img class="employeeImage image-box" alt="Employee Image" />
+            </div>
+
+            <div class="employee-details-box">
+              <span class="employeename">{employeename}</span>
+              <br />
+              <br />
+              <span class="position1">{position}</span>
+            </div>
+            <div class="triangle"></div>
+          </div>
+
+          <!-- NO OF Years -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/growth.png" />
+            </div>
+            <div class="user-detail-heading color headingYow1">
+              عدد سنوات العمل في الوزارة
+            </div>
+
+            <div class="user-detail-sub-heading noOfYearsPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- DATE OF BIRTH -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/calender.png" />
+            </div>
+            <div class="user-detail-heading color headingDob1">
+              تاريخ الميلاد
+            </div>
+
+            <div dir="rtl" class="user-detail-sub-heading dob">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- MARITAL STATUS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/avatar.png" />
+            </div>
+            <div class="user-detail-heading color headingMs1">
+              الحالة الإجتماعية
+            </div>
+
+            <div
+              dir="rtl"
+              class="user-detail-sub-heading maritalStatusPlaceHolder"
+            >
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- GLOBAL -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/region.png" />
+            </div>
+            <div class="user-detail-heading color headingRegion">
+              المسار الجغرافي
+            </div>
+
+            <div class="user-detail-sub-heading regionPlaceHolder1">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder2">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder3">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CLASS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/classImg.png" />
+            </div>
+            <div class="user-detail-heading color headingGP1">الدرجة</div>
+
+            <div class="user-detail-sub-heading classPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/contact.png" />
+            </div>
+            <div class="user-detail-heading color headingCntct1">
+              معلومات التواصل
+            </div>
+
+            <div class="user-detail-sub-heading phonePlaceHolder">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading emailPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--New 3rd PAGE -->
+      <div class="container">
+        <div class="left-div3">
+          <div class="left-div33"></div>
+          <div class="bottom-right-content">
+            <div class="circle langChange" style="right: 0px">
+              <img
+                width="55px"
+                src="./images/languages.webp"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+            <div
+              dir="rtl"
+              lang="ar"
+              style="font-size: 24px; margin-right: 70px; margin-top: -5px"
+            >
+              <span class="langg">Click Logo For English</span>
+            </div>
+          </div>
+
+          <div class="outer-tag1">
+            <div class="inner-tag1">
+              <div class="ilts1 common">
+                <div class="engLanguage">اللغة الإنجليزية</div>
+                <div class="engScore">لم يتم توفير الشهادة</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag"><strong>EN</strong></div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+
+            <div class="inner-tag1">
+              <div class="mt1 common">
+                <div class="mother-tounge">English</div>
+                <div class="mother-tounge-label">Mother Tounge</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag">
+                  <strong class="mother-tounge-tag">PR</strong>
+                </div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-div">
+          <div class="employee-outer-box">
+            <div class="image-outer-box">
+              <img class="employeeImage image-box" alt="Employee Image" />
+            </div>
+
+            <div class="employee-details-box">
+              <span class="employeename namePlaceHolder">Employee Name</span>
+              <br />
+              <br />
+              <span class="position1 positionPlaceHolder">Position</span>
+            </div>
+            <div class="triangle"></div>
+          </div>
+
+          <!-- NO OF Years -->
+
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/growth.png" />
+            </div>
+            <div class="user-detail-heading color headingYow1">
+              عدد سنوات العمل في الوزارة
+            </div>
+
+            <div dir="rtl" class="user-detail-sub-heading noOfYearsPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- DATE OF BIRTH -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/calender.png" />
+            </div>
+            <div class="user-detail-heading color headingDob1">
+              تاريخ الميلاد
+            </div>
+
+            <div dir="rtl" class="user-detail-sub-heading dob dobPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- MARITAL STATUS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/avatar.png" />
+            </div>
+            <div class="user-detail-heading color headingMs1">
+              الحالة الإجتماعية
+            </div>
+
+            <div
+              dir="rtl"
+              class="user-detail-sub-heading maritalStatusPlaceHolder"
+            >
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- GLOBAL -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/region.png" />
+            </div>
+            <div class="user-detail-heading color headingRegion">
+              المسار الجغرافي
+            </div>
+
+            <div class="user-detail-sub-heading regionPlaceHolder1">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder2">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder3">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CLASS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/classImg.png" />
+            </div>
+            <div class="user-detail-heading color headingGP1">الدرجة</div>
+
+            <div class="user-detail-sub-heading classPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/contact.png" />
+            </div>
+            <div class="user-detail-heading color headingCntct1">
+              معلومات التواصل
+            </div>
+
+            <div class="user-detail-sub-heading phonePlaceHolder">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading emailPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--New 4th PAGE -->
+      <div class="container">
+        <div class="left-div4">
+          <div class="left-div44"></div>
+          <div class="bottom-right-content">
+            <div class="circle langChange" style="right: 0px">
+              <img
+                width="55px"
+                src="./images/languages.webp"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+            <div
+              dir="rtl"
+              lang="ar"
+              style="font-size: 24px; margin-right: 70px; margin-top: -5px"
+            >
+              <span class="langg">Click Logo For English</span>
+            </div>
+          </div>
+
+          <div class="outer-tag1">
+            <div class="inner-tag1">
+              <div class="ilts1 common">
+                <div class="engLanguage">اللغة الإنجليزية</div>
+                <div class="engScore">لم يتم توفير الشهادة</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag"><strong>EN</strong></div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+            <div class="inner-tag1">
+              <div class="mt1 common">
+                <div class="mother-tounge">English</div>
+                <div class="mother-tounge-label">Mother Tounge</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag">
+                  <strong class="mother-tounge-tag">AR</strong>
+                </div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-div">
+          <div class="employee-outer-box">
+            <div class="image-outer-box">
+              <img class="employeeImage image-box" alt="Employee Image" />
+            </div>
+
+            <div class="employee-details-box">
+              <span class="employeename">{employeename}</span>
+              <br />
+              <br />
+              <span class="position1">{position}</span>
+            </div>
+            <div class="triangle"></div>
+          </div>
+
+          <!-- NO OF Years -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/growth.png" />
+            </div>
+
+            <div class="user-detail-heading color headingYow1">
+              عدد سنوات العمل في الوزارة
+            </div>
+
+            <div class="user-detail-sub-heading noOfYearsPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- DATE OF BIRTH -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/calender.png" />
+            </div>
+
+            <div lang="ar" class="user-detail-heading color headingDob1">
+              تاريخ الميلاد
+            </div>
+
+            <div dir="rtl" class="user-detail-sub-heading dob">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- MARITAL STATUS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/avatar.png" />
+            </div>
+            <div class="user-detail-heading color headingMs1">
+              الحالة الإجتماعية
+            </div>
+
+            <div
+              dir="rtl"
+              class="user-detail-sub-heading maritalStatusPlaceHolder"
+            >
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- GLOBAL -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/region.png" />
+            </div>
+            <div class="user-detail-heading color headingRegion">
+              المسار الجغرافي
+            </div>
+
+            <div class="user-detail-sub-heading regionPlaceHolder1">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder2">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder3">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CLASS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/classImg.png" />
+            </div>
+            <div class="user-detail-heading color headingGP1">الدرجة</div>
+
+            <div class="user-detail-sub-heading classPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/contact.png" />
+            </div>
+            <div class="user-detail-heading color headingCntct1">
+              معلومات التواصل
+            </div>
+
+            <!-- <div class="user-detail-sub-heading dob">{DOB}</div> -->
+            <div class="user-detail-sub-heading phonePlaceHolder">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading emailPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--New 5th PAGE -->
+      <div class="container">
+        <div class="left-div5">
+          <!-- style="margin-left: 360px; margin-top: 50px;" -->
+
+          <!-- PROMOTION HISTORY -->
+          <div class="first-part" style="margin-top: 24px">
+            <div dir="rtl" lang="ar" style="margin-top: 24px" class="heading">
+              <span class="promotion5">سجل الترقيات</span>
+            </div>
+            <div style="margin-top: 24px; margin-right: 80px" class="circle">
+              <img
+                width="60px"
+                src="./images/handShake.png"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+          </div>
+          <div class="sub-detail5-0"></div>
+
+          <!-- TALENT -->
+          <div class="first-part" style="margin-top: 140px">
+            <div dir="rtl" lang="ar" style="margin-top: 24px" class="heading">
+              <span class="talent5">إدارة المواهب </span>
+            </div>
+            <div style="margin-top: 24px; margin-right: 80px" class="circle">
+              <img
+                width="45px"
+                src="./images/whiteBoard.png"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+          </div>
+
+          <!-- <div class="heading" style="margin-top: 50px; margin-bottom: 20px">
+            <span class="talent2">إدارة المواهب</span>
+          </div> -->
+          <div class="arrow-table">
+            <div class="arrow-line-vertical" style="font-weight: bold">
+              <span class="rotate">Potential</span>
+            </div>
+            <table class="xy-table xy-table-adjust1">
+              <tr>
+                <td style="background-color: #fceec3">Potential Performer</td>
+                <td style="background-color: #b1dbb6">Emerging Talent</td>
+                <td style="background-color: #b3dab7">Top Talent(75%-100%)</td>
+              </tr>
+              <tr>
+                <td style="background-color: #f6a5a0">
+                  Inconsistent Performer
+                </td>
+                <td style="background-color: #fdeec4">Core Performer</td>
+                <td style="background-color: #b1dbb6">Rising Talent</td>
+              </tr>
+              <tr>
+                <td style="background-color: #dca099">Talent Risk</td>
+                <td style="background-color: #fceec3">Effective Performer</td>
+                <td style="background-color: #fceec3">Valued Performer</td>
+              </tr>
+            </table>
+            <div class="crcl-div">
+              <div class="cccircle"></div>
+            </div>
+          </div>
+          <div class="arrow-line-horizontal">
+            <span style="margin-left: 200px; font-size: 22px; font-weight: bold"
+              >Performance</span
+            >
+          </div>
+
+          <!-- style="margin-left: 250px; margin-top: 50px" -->
+          <!-- ASSESSMENT SUMMARY -->
+          <div class="first-part" style="margin-top: 50px">
+            <div dir="rtl" lang="ar" style="margin-top: 24px" class="heading">
+              <span class="assmnt-summary5">ملخص مركز التقييم</span>
+            </div>
+            <div style="margin-top: 24px; margin-right: 80px" class="circle">
+              <img
+                width="45px"
+                src="./images/whiteBoard.png"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+          </div>
+          <!-- <div class="heading" style="margin-top: 50px; margin-bottom: 20px">
+            <span class="assmnt-summary2">ملخص مركز التقييم</span>
+          </div> -->
+          <div class="graph-comment" style="margin-top: 24px">
+            <div class="graph-body">
+              <div class="container-graph">
+                <div class="bar one"></div>
+                <div class="bar two"></div>
+                <div class="bar three"></div>
+                <div class="bar four"></div>
+                <div class="bar five"></div>
+
+                <ul class="v-meter">
+                  <li><div>Significant Area Of Strength</div></li>
+                  <li><div>Area of Strength</div></li>
+                  <li><div>At Level</div></li>
+                  <li><div>Area For Development</div></li>
+                  <li><div>Significant Area for Development</div></li>
+                </ul>
+                <div class="horizontal-labels">
+                  <span>Problem Solving</span>
+                  <span>Agile & Creative</span>
+                  <span>Delivering Results</span>
+                  <span>Communicate & Relate</span>
+                  <span>Organisational Commitment & Engagement</span>
+                </div>
+              </div>
+            </div>
+            <div class="comment-outer">
+              <div class="cloud">
+                <!-- <p>Comment Box</p> -->
+                <input
+                  type="text"
+                  name="username"
+                  class="comment-input"
+                  placeholder="Enter your comment here..."
+                  oninput="if (this.value.length > 40) { alert('Sorry!! Maximum characters limit reached.'); this.value = this.value.slice(0, 40); }"
+                />
+
+                <!-- <textarea
+                  name="comment"
+                  placeholder="Enter your comment here..."
+                  class="comment-box"
+                ></textarea> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="bottom-right-content">
+            <div class="circle langChange" style="right: 0px">
+              <img
+                width="55px"
+                src="./images/languages.webp"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+            <div
+              dir="rtl"
+              lang="ar"
+              style="font-size: 24px; margin-right: 70px; margin-top: -5px"
+            >
+              <span class="langg">Click Logo For English</span>
+            </div>
+          </div>
+
+          <div class="outer-tag1">
+            <div class="inner-tag1">
+              <div class="ilts1 common">
+                <div class="engLanguage">اللغة الإنجليزية</div>
+                <div class="engScore">لم يتم توفير الشهادة</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag"><strong>EN</strong></div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+
+            <div class="inner-tag1">
+              <div class="mt1 common">
+                <div class="mother-tounge">English</div>
+                <div class="mother-tounge-label">Mother Tounge</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag">
+                  <strong class="mother-tounge-tag">AR</strong>
+                </div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-div">
+          <div class="employee-outer-box">
+            <div class="image-outer-box">
+              <img class="employeeImage image-box" alt="Employee Image" />
+            </div>
+
+            <div class="employee-details-box">
+              <span class="employeename">{employeename}</span>
+              <br />
+              <br />
+              <span class="position1">{position}</span>
+            </div>
+            <div class="triangle"></div>
+          </div>
+
+          <!-- NO OF Years -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/growth.png" />
+            </div>
+            <div class="user-detail-heading color headingYow1">
+              عدد سنوات العمل في الوزارة
+            </div>
+
+            <div class="user-detail-sub-heading noOfYearsPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- DATE OF BIRTH -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/calender.png" />
+            </div>
+            <div class="user-detail-heading color headingDob1">
+              تاريخ الميلاد
+            </div>
+
+            <div dir="rtl" class="user-detail-sub-heading dob">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- MARITAL STATUS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/avatar.png" />
+            </div>
+            <div class="user-detail-heading color headingMs1">
+              الحالة الإجتماعية
+            </div>
+
+            <div
+              dir="rtl"
+              class="user-detail-sub-heading maritalStatusPlaceHolder"
+            >
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- GLOBAL -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/region.png" />
+            </div>
+            <div class="user-detail-heading color headingRegion">
+              المسار الجغرافي
+            </div>
+
+            <div class="user-detail-sub-heading regionPlaceHolder1">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder2">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder3">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CLASS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/classImg.png" />
+            </div>
+            <div class="user-detail-heading color headingGP1">الدرجة</div>
+
+            <div class="user-detail-sub-heading classPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/contact.png" />
+            </div>
+            <div class="user-detail-heading color headingCntct1">
+              معلومات التواصل
+            </div>
+
+            <div class="user-detail-sub-heading phonePlaceHolder">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading emailPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--New 6th PAGE -->
+      <div class="container">
+        <div class="left-div6">
+          <div class="left-div66"></div>
+          <div class="bottom-right-content">
+            <div class="circle langChange" style="right: 0px">
+              <img
+                width="55px"
+                src="./images/languages.webp"
+                style="position: absolute; z-index: 2; right: 2px; top: 6px"
+              />
+            </div>
+            <div
+              dir="rtl"
+              lang="ar"
+              style="font-size: 24px; margin-right: 70px; margin-top: -5px"
+            >
+              <span class="langg">Click Logo For English</span>
+            </div>
+          </div>
+
+          <div class="outer-tag1">
+            <div class="inner-tag1">
+              <div class="ilts1 common">
+                <div class="engLanguage">اللغة الإنجليزية</div>
+                <div class="engScore">لم يتم توفير الشهادة</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag"><strong>EN</strong></div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+            <div class="inner-tag1">
+              <div class="mt1 common">
+                <div class="mother-tounge">English</div>
+                <div class="mother-tounge-label">Mother Tounge</div>
+              </div>
+              <div class="inner-tag1-image">
+                <div class="footer-image1-tag">
+                  <strong class="mother-tounge-tag">AR</strong>
+                </div>
+                <img width="65px" src="./images/messageBox.webp" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-div">
+          <div class="employee-outer-box">
+            <div class="image-outer-box">
+              <img class="employeeImage image-box" alt="Employee Image" />
+            </div>
+
+            <div class="employee-details-box">
+              <span class="employeename">{employeename}</span>
+              <br />
+              <br />
+              <span class="position1">{position}</span>
+            </div>
+            <div class="triangle"></div>
+          </div>
+
+          <!-- NO OF Years -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/growth.png" />
+            </div>
+
+            <div class="user-detail-heading color headingYow1">
+              عدد سنوات العمل في الوزارة
+            </div>
+
+            <div class="user-detail-sub-heading noOfYearsPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- DATE OF BIRTH -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/calender.png" />
+            </div>
+
+            <div lang="ar" class="user-detail-heading color headingDob1">
+              تاريخ الميلاد
+            </div>
+
+            <div dir="rtl" class="user-detail-sub-heading dob">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- MARITAL STATUS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/avatar.png" />
+            </div>
+            <div class="user-detail-heading color headingMs1">
+              الحالة الإجتماعية
+            </div>
+
+            <div
+              dir="rtl"
+              class="user-detail-sub-heading maritalStatusPlaceHolder"
+            >
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- GLOBAL -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/region.png" />
+            </div>
+            <div class="user-detail-heading color headingRegion">
+              المسار الجغرافي
+            </div>
+
+            <div class="user-detail-sub-heading regionPlaceHolder1">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder2">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading regionPlaceHolder3">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CLASS -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/classImg.png" />
+            </div>
+            <div class="user-detail-heading color headingGP1">الدرجة</div>
+
+            <div class="user-detail-sub-heading classPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="outer-user-detail">
+            <div class="detail-circle">
+              <img class="detail-image" src="./images/contact.png" />
+            </div>
+            <div class="user-detail-heading color headingCntct1">
+              معلومات التواصل
+            </div>
+
+            <!-- <div class="user-detail-sub-heading dob">{DOB}</div> -->
+            <div class="user-detail-sub-heading phonePlaceHolder">
+              Data Not Available
+            </div>
+            <div class="user-detail-sub-heading emailPlaceHolder">
+              Data Not Available
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
